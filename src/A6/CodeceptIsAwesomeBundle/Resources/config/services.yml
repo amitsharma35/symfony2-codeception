@@ -1,0 +1,8 @@
+parameters:
+    a6_codecept_is_awesome.service.fizz_buzz.class: A6\CodeceptIsAwesomeBundle\Service\FizzBuzzService
+
+services:
+    a6_codecept_is_awesome.service.fizz_buzz:
+        class: %a6_codecept_is_awesome.service.fizz_buzz.class%
+
+

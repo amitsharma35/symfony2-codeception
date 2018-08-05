@@ -1,0 +1,17 @@
+imports:
+    - { resource: config_prod.yml }
+
+framework:
+    profiler: { only_exceptions: false }
+
+twig:
+    cache: false
+
+swiftmailer:
+    disable_delivery: true
+
+doctrine:
+    dbal:
+#        driver: pdo_sqlite
+#        path: "%kernel.root_dir%/codecept_data.sqlite"
+        dbname: %test_database_name%

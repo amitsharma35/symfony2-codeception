@@ -1,0 +1,30 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 1024M
+coverage:
+    enabled: true
+    remote: true
+    include:
+      - src/*
+    exclude:
+      - var/*
+      - bin/*
+      - app/*
+      - vendor/*
+      - web/*
+modules:
+    config:
+        DbHelper:
+            dsn: 'mysql:host=localhost;dbname=codecept_tutorial'
+            user: 'root'
+            password: ''
+            dump: tests/_data/dump.sql
+            cleanup: true
+            populate: true

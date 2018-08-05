@@ -1,0 +1,38 @@
+{% extends "::base.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="/bundles/a6codeceptisawesome/js/showFlash.js"></script>
+    <script type="text/javascript" src="/bundles/a6codeceptisawesome/js/showModal.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <a href="{{ path('fos_user_security_logout') }}">Log out now</a>
+    {% else %}
+        <a href="{{ path('fos_user_security_login') }}">Let me log in please, kthx</a>
+    {% endif %}
+    </div>
+
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        <div class="bg-info">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <div id="hiddenMessage" class="bg-danger">You must tick the box to continue...!</div>
+
+    <main id="content">
+        <h1>Our header</h1>
+
+        <p>Some other text here</p>
+
+        {{ form(form) }}
+
+    </main>
+
+    <a href="#" id="modalButton">Click me</a>
+
+
+{% endblock %}

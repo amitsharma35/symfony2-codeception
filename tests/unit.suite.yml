@@ -1,0 +1,20 @@
+# Codeception Test Suite Configuration
+
+# suite for unit (internal) tests.
+class_name: UnitTester
+modules:
+    enabled:
+        - Asserts
+        - DbHelper
+        - UnitHelper
+        - Symfony2
+        - Doctrine2
+    config:
+        Symfony2:
+            var_path: 'var' # only required if using Symfony 3 directory structure, otherwise defaults to 'app'
+            app_dir: 'app'
+            environment: codecept
+            debug: true
+
+        Doctrine2:
+            cleanup: true
